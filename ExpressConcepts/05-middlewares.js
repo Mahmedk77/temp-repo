@@ -1,5 +1,5 @@
 const express = require('express');
-const {middleWare1, middleWare2} = require('./ExpressConcepts/utils/middlewares/mdws')
+const {middleWare1, middleWare2} = require('./utils/middlewares/mdws')
 
 const app = express();
 

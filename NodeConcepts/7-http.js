@@ -1,6 +1,8 @@
 const http = require('http');
+const {readFileSync} = require('fs')
 
-// const http = require('http');
+console.log("server: http://localhost:5500");
+
 
 // const server = http.createServer((req,res) => {
 //     if(req.url === '/'){
@@ -39,5 +41,15 @@ const server = http.createServer((req,res) => {
         // this works because the browser thinks that str is actual html
 })
 
-server.listen(5500);
-console.log("server: http://localhost:5500");
+//USING EVENT EMITTER:
+//.ON IS POSSIBLE BECAUSE HTTP EXTENDS EVENTEMITTER
+
+const EventAPIServer = http.createServer()
+
+EventAPIServer.on('request', (req, res)=>{
+    if(req.url == '/') res.end(`Hello`);
+    else if (req.url == '/about') res.end('Its about')
+    
+})
+
+EventAPIServer.listen(5500);
